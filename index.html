@@ -27,7 +27,7 @@
     </a>
 
     <ul class="list nav-list">
-        <li><a href="./index.html" class="first-page link current">Studio</a></li>
+        <li><a href="./index.html" class="first-page link current link-active">Studio</a></li>
         <li><a href="./portfolio.html" class="first-page link current">Portfolio</a></li>
         <li><a href="" class="first-page link current">Contacts</a></li>
     </ul>
@@ -48,7 +48,7 @@
     <section class="headline">
         <div class="container">
             <h1 class="headline-title">Effective Solutions for Your Business</h1>
-            <button class="button primary" type="button">Order Service</button>
+            <button class="button primary" type="button" data-modal-open >Order Service</button>
         </div>
     </section>
 
@@ -352,5 +352,19 @@
     </div>
 </div>
 </footer>
+
+<!-- Modal window -->
+
+    <div class="backdrop is-hidden" data-modal>
+        <div class="modal">
+            <button class="modal-btn" type="button" aria-label="Close modal window button" data-modal-close>
+                <svg class="modal-icon" width="8" height="8">
+                    <use href="./images/icons.svg#icon-close-sign"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+<script src="./modal.js"></script>
 </body>
 </html>

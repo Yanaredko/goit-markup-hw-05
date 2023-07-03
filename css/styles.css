@@ -102,6 +102,9 @@ ul {
     letter-spacing: 0.03em;
     text-transform: uppercase;
     color: var(--brand-color);
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .logo.link {
@@ -143,8 +146,19 @@ ul {
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
-    color: var(--title-text-color);
+    color: var(--background-color-dark);
     padding: 24px 0;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-active:hover::after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 4px;
+    background-color: var(--link-color-change);
+    border-radius: 2px;
 }
 
 .address.list {
@@ -172,6 +186,8 @@ gap: 40px;
     letter-spacing: 0.02em;
     color: var(--primary-text-color);
     padding: 24px 0;
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link.link.email:hover,
 .link.link.email:focus {
@@ -218,6 +234,8 @@ gap: 40px;
     display: block;
     margin: 0 auto;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button.primary:hover,
 .button.primary:focus {
@@ -339,6 +357,8 @@ adv-neighbour:not(:last-child) {
     height: 40px;
     background-color: var(--brand-color);
     border-radius: 50%;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover,
@@ -405,6 +425,8 @@ adv-neighbour:not(:last-child) {
     align-items: center;
     justify-content: center;
     color: var(--lightslate)
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customer-link:hover, 
@@ -419,6 +441,8 @@ adv-neighbour:not(:last-child) {
 
 .customer-logo {
 fill: var(--lightslate);
+
+transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customer-logo:hover,
@@ -490,6 +514,8 @@ fill: var(--lightslate);
     display: flex;
     align-items: center;
     justify-content: center;
+
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-link:hover,
@@ -529,6 +555,72 @@ row-gap: 48px;
     gap: 24px;
 }
 
+/* Modal window */
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(46, 47, 66, 0.40);
+
+    opacity: 1;
+    pointer-events: initial;
+    visibility: visible;
+
+    transition: opacity 250ms ease-out, visibility 250ms ease-out;
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 408px;
+    height: 584px;
+
+    background-color: #FCFCFC;
+    border-radius: 4px;
+    box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.20), 0px 1px 3px 0px rgba(0, 0, 0, 0.12), 0px 1px 1px 0px rgba(0, 0, 0, 0.14);
+
+    transition: transform 250ms ease-out, opacity 250ms ease-out;
+    transition-delay: 250ms;
+}
+
+.backdrop.is-hidden .modal {
+    opacity: 0;
+    transform: translate(-50%, -70%);
+    transition-delay: 0ms;
+}
+
+.modal-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+
+    background-color: transparent;
+    border: none;
+}
+
+.modal-icon {
+    fill: var(--background-color-dark);
+}
+
 /* Page Portfolio*/
     
 .section-portfolio.container {
@@ -547,6 +639,8 @@ row-gap: 48px;
     cursor: pointer;
     padding: 12px 24px;
     border: 1px solid var(--cornflower);border-radius: 4px;  
+
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-portfolio.all:hover,
@@ -604,9 +698,44 @@ row-gap: 48px;
     width: calc((100% - 48px) / 3);
 }
 
+cart-set-link {
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .cart-set-link:hover,
 .cart-set-link:focus {
     box-shadow: 0px 1px 6px rgba(46, 47, 66, 0.08),
         0px 1px 1px rgba(46, 47, 66, 0.16),
         0px 2px 1px rgba(46, 47, 66, 0.08);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(100%);
+    background-color: var(--brand-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 250ms;
+    padding: 32px 16px;
+}
+
+.cart-set-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay-text {
+    color: var(--background-color-cloud);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.cart-set-filter:hover .overlay,
+.cart-set-filter:focus .overlay {
+    transform: translateY(0);
 }
