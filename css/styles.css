@@ -175,7 +175,7 @@ ul {
     left: -20px;
 }*/
 
-.link-active {
+.first-page.link.current.link-active {
     color: #404bbf;
 }
 
