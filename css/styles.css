@@ -175,6 +175,10 @@ ul {
     left: -20px;
 }*/
 
+.link-active {
+    color: #404bbf;
+}
+
 .link-active::after {
     display: block;
     content: "";
