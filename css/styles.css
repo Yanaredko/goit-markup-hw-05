@@ -161,6 +161,7 @@ ul {
     position: absolute;
     bottom: -1px;
     left: 0;
+    color: #404bbf;
 }
 
 /*.header-link:hover::after {
